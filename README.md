@@ -1,10 +1,18 @@
-# Serverless Stack (SST) demo
+Japanese follows (日本語は後半に)
 
-_Japanese follows (日本語は後半に)_
+# Serverless Stack (SST) demo
 
 [Serverless Stack (SST)](https://docs.serverless-stack.com/) is a very useful framework.
 I can deploy my serverless app on AWS without editing any complex YAML or other config files.
 This is a simple demo using my favorite tech stack.
+
+![image](https://user-images.githubusercontent.com/2731953/134549280-7fa6d3c2-5abe-4bd2-a4bc-04888aef4b3e.png)
+
+- Message board app in React.
+- DynamoDB backed RESTful API with Fastify.
+- TypeScript.
+- AWS.
+
 
 ## TypeScript
 
@@ -16,6 +24,8 @@ Thankfully, in SST, TypeScript is supported without adding any plugin.
 
 SST is very friendly with AWS DynamoDB out of the box. Please refer to [lib/MyStack.ts](lib/MyStack.ts)
 I added one table with primary index (pair of partition key and sort key) and also one GSI.
+
+![image](https://user-images.githubusercontent.com/2731953/134549759-b4a727a4-c7d1-4917-9420-9883f4276e51.png)
 
 
 ## Fastify
