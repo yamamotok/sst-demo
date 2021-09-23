@@ -2,11 +2,13 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "declaration": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": ["es2018"],
     "module": "commonjs",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -20,5 +22,10 @@
     "target": "ES2018",
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["lib", "src"]
+  "include": ["lib", "src"],
+  "references": [
+    {
+      "path": "./frontend"
+    }
+  ]
 }

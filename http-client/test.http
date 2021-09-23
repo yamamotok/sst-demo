@@ -1,0 +1,26 @@
+### GET test response
+GET https://{{host}}
+
+### GET all Boards
+GET https://{{host}}/boards
+
+### Create a Board
+POST https://{{host}}/boards
+Content-Type: application/json
+
+{
+  "name": "New Board"
+}
+
+### GET all Boards
+GET https://{{host}}/boards/01FG8MBS88XEYETF501ZSWNCW3
+
+### Create a Board
+POST https://{{host}}/boards/01FG8MBS88XEYETF501ZSWNCW3
+Content-Type: application/json
+
+{
+  "message": "Hello World!"
+}
+
+

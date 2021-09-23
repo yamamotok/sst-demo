@@ -1,0 +1,12 @@
+.App {
+  margin: 0 auto;
+}
+
+.App h4 {
+  margin: 2em 0 1em;
+}
+
+.App .board-buttons button {
+  width: 140px;
+  margin: 10px 0;
+}

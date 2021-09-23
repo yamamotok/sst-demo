@@ -1,8 +1,5 @@
-# Editor files
 /.idea
 *.iml
-
-# TypeScript out dir
 /.out
 
 ################################################

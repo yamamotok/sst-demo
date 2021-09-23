@@ -1,9 +1,5 @@
-import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2 } from 'aws-lambda';
+import awsLambdaFastify from 'aws-lambda-fastify';
+import app from './app';
 
-export const handler: APIGatewayProxyHandlerV2 = async (event: APIGatewayProxyEventV2) => {
-  return {
-    statusCode: 200,
-    headers: { 'Content-Type': 'text/plain' },
-    body: `Hello, World! Your request was received at ${event.requestContext.time}.`,
-  };
-};
+const proxy = awsLambdaFastify(app);
+export const handler = proxy;
