@@ -5,9 +5,7 @@
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "lib": [
-      "es2018"
-    ],
+    "lib": ["es2018"],
     "module": "commonjs",
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": true,
@@ -20,9 +18,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "target": "ES2018",
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["lib","src"]
+  "include": ["lib", "src"]
 }
