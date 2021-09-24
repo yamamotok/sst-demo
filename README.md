@@ -3,13 +3,15 @@ Japanese follows (日本語は後半に)
 # Serverless Stack (SST) demo
 
 [Serverless Stack (SST)](https://docs.serverless-stack.com/) is a very useful framework.
-I can deploy my serverless app on AWS without editing any complex YAML or other config files.
-This is a simple demo using my favorite tech stack.
+I can deploy my serverless app on AWS without any complex YAML or other config files.
+
+This repo is a simple demo using my favorite tech stack,
+**TypeScript**, **DynamoDB**, **Node.js**, **Fastify**, and **React**.
 
 ![image](https://user-images.githubusercontent.com/2731953/134549280-7fa6d3c2-5abe-4bd2-a4bc-04888aef4b3e.png)
 
-- Message board app in React.
-- DynamoDB backed RESTful API with Fastify.
+- Message Board App in React.
+- DynamoDB backed RESTful API with Node.js, Fastify.
 - TypeScript.
 - AWS.
 
@@ -17,7 +19,10 @@ This is a simple demo using my favorite tech stack.
 ## TypeScript
 
 Thankfully, in SST, TypeScript is supported without adding any plugin.
-(However to use it on frontend side, you might need another effort. Please see React section)
+
+However, if you want to create a backend and a frontend project in one repository, and they are in TypeScript, it may be a bit difficult
+because you need to manage two "tsconfig.json" files with different characteristics.
+Please check "React" section too.
 
 
 ## AWS DynamoDB
@@ -37,6 +42,15 @@ Please check [src/app.ts](src/app.ts) which is the entry point.
 - [aws-lambda-fastify](https://github.com/fastify/aws-lambda-fastify)
 
 
+Fastify should be excluded from the bundle, otherwise unexpected error occurs.
+Let's add this setting, please see [lib/MyStack.ts](lib/MyStack.ts).
+
+```javascript
+bundle: {
+  nodeModules: ['fastify'],
+}
+```
+
 ## React
 
 This [SST React Example](https://serverless-stack.com/examples/how-to-create-a-reactjs-app-with-serverless.html)
@@ -51,11 +65,15 @@ So now I am using [Parcel](https://parceljs.org/) for development and making bun
 
 - We can install aws-sdk with `--save-dev` option because Lambda will be able to provide the actual library.  
   e.g. `npm install --save-dev aws-sdk`
+- If you are changing your infrastructure repeatedly and get unexpected errors when deploying,
+  `rm -f .build` may help you.
 
 
+&nbsp;  
+&nbsp;  
+&nbsp;
 
-----------
-
+# Serverless Stack (SST) のデモ
 
 [Serverless Stack (SST)](https://docs.serverless-stack.com/) はとても便利なフレームワークです。
 複雑なYAMLや設定ファイルなどを編集することなく、サーバーレスアプリをAWSにデプロイすることができます。
@@ -63,7 +81,7 @@ So now I am using [Parcel](https://parceljs.org/) for development and making bun
 ## TypeScript
 
 TypeScriptは最初からサポートされています。
-(ただし、フロントエンドでもTypeScriptを使う場合、工夫が必要かもしれません。Reactのセクションを見てください)
+(ただし、バックエンドとフロントエンドとを同梱して両方でTypeScriptを使う場合、工夫が必要かもしれません。Reactのセクションを見てください)
 
 ## AWS DynamoDB
 
@@ -93,11 +111,9 @@ CRAは"tsconfig.json"を編集してしまうので、このデモプロジェ�
 - aws-sdk は "--save-dev" オプションでインストールすれば十分です。Lambdaが本物を提供してくれます。  
   例) `npm install --save-dev aws-sdk`
 
-
-
-----------
-
-
+&nbsp;  
+&nbsp;  
+&nbsp;  
 
 ## License (MIT)
 
