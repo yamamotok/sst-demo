@@ -22,6 +22,9 @@ export default class MyStack extends sst.Stack {
     });
     const mainFunc = new sst.Function(this, 'Main', {
       handler: 'src/lambda.handler',
+      bundle: {
+        nodeModules: ['fastify'],
+      },
       environment: {
         tableName: table.dynamodbTable.tableName,
       },
