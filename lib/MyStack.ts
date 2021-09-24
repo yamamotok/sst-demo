@@ -16,19 +16,25 @@ export default class MyStack extends sst.Stack {
       },
     });
 
+    // Create functions
+    const testFunc = new sst.Function(this, 'Test', {
+      handler: 'src/lambda.handler',
+    });
+    const mainFunc = new sst.Function(this, 'Main', {
+      handler: 'src/lambda.handler',
+      environment: {
+        tableName: table.dynamodbTable.tableName,
+      },
+    });
+
     // Create a HTTP API
     const api = new sst.Api(this, 'Api', {
-      defaultFunctionProps: {
-        environment: {
-          tableName: table.dynamodbTable.tableName,
-        },
-      },
       routes: {
-        'GET /': 'src/lambda.handler',
-        'GET /boards': 'src/lambda.handler',
-        'POST /boards': 'src/lambda.handler',
-        'GET /boards/{boardId}': 'src/lambda.handler',
-        'POST /boards/{boardId}': 'src/lambda.handler',
+        'GET /': testFunc,
+        'GET /boards': mainFunc,
+        'POST /boards': mainFunc,
+        'GET /boards/{boardId}': mainFunc,
+        'POST /boards/{boardId}': mainFunc,
       },
     });
     api.attachPermissions([table]);
